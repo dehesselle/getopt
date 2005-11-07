@@ -1,6 +1,6 @@
 /*
     nls.h - NLS system interface
-    Copyright (c) 2000  Frodo Looijaard <frodol@dds.nl>
+    Copyright (c) 2000-2005  Frodo Looijaard <frodo@frodo.looijaard.name>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
