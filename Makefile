@@ -16,7 +16,11 @@ LIBCGETOPT=1
 # Define this to 1 if you do not have the gettext routines
 WITHOUT_GETTEXT=0
 
-
+# For creating the archive
+PACKAGE=getopt
+VERSION=1.1.4
+BASENAME=$(PACKAGE)-$(VERSION)
+UNLIKELYNAME=a8vwjfd92
 
 SHELL=/bin/sh
 
@@ -93,3 +97,12 @@ endif
 
 %.mo: %.po
 	 $(MSGFMT) -o $@ $<
+
+# You need GNU tar for this to work!
+.PHONY: package
+package: clean
+	$(RM) -r $(UNLIKELYNAME)
+	mkdir $(UNLIKELYNAME)
+	ln -s .. $(UNLIKELYNAME)/$(BASENAME)
+	cd $(UNLIKELYNAME) && tar cfvzp ../$(BASENAME).tar.gz --exclude='CVS' --exclude='*.tar.gz' --exclude=$(UNLIKELYNAME) $(BASENAME)/*
+	$(RM) -r $(UNLIKELYNAME)
