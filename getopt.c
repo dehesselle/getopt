@@ -1,21 +1,21 @@
 /*
-    getopt.c - Enhanced implementation of BSD getopt(1)
-    Copyright (c) 1997-2005 Frodo Looijaard <frodo@frodo.looijaard.name>
-
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-*/
+ *  getopt.c - Enhanced implementation of BSD getopt(1)
+ *  Copyright (c) 1997-2005 Frodo Looijaard <frodo@frodo.looijaard.name>
+ *
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ */
 
 /* 
  * Version 1.0-b4: Tue Sep 23 1997. First public release.
@@ -54,7 +54,7 @@
 #include "nls.h"
 
 /* NON_OPT is the code that is returned when a non-option is found in '+' 
-   mode */
+ * mode */
 #define NON_OPT 1
 /* LONG_OPT is the code that is returned when a long option is found. */
 #define LONG_OPT 2
@@ -64,11 +64,11 @@ typedef enum {BASH,TCSH} shell_t;
 
 
 /* Some global variables that tells us how to parse. */
-shell_t shell=BASH; /* The shell we generate output for. */
-int quiet_errors=0; /* 0 is not quiet. */
-int quiet_output=0; /* 0 is not quiet. */
-int quote=1; /* 1 is do quote. */
-int alternative=0; /* 0 is getopt_long, 1 is getopt_long_only */
+shell_t shell=BASH;       /* The shell we generate output for. */
+int quiet_errors=0;       /* 0 is not quiet. */
+int quiet_output=0;       /* 0 is not quiet. */
+int quote=1;              /* 1 is do quote. */
+int alternative=0;        /* 0 is getopt_long, 1 is getopt_long_only */
 
 /* Function prototypes */
 void *our_malloc(size_t size);
@@ -105,13 +105,13 @@ void *our_realloc(void *ptr, size_t size)
 }
 
 /*
- * This function 'normalizes' a single argument: it puts single quotes around
- * it and escapes other special characters. If quote is false, it just
- * returns its argument.
+ * This function 'normalizes' a single argument: it puts single quotes
+ * around it and escapes other special characters. If quote is false, it
+ * just returns its argument.
+ *
  * Bash only needs special treatment for single quotes; tcsh also recognizes
- * exclamation marks within single quotes, and nukes whitespace.
- * This function returns a pointer to a buffer that is overwritten by 
- * each call.
+ * exclamation marks within single quotes, and nukes whitespace. This
+ * function returns a pointer to a buffer that is overwritten by each call.
  */
 const char *normalize(const char *arg)
 {
@@ -122,17 +122,20 @@ const char *normalize(const char *arg)
 	if (BUFFER != NULL)
 		free(BUFFER);
 
-	if (!quote) { /* Just copy arg */
+	if (!quote) { 
+		/* Just copy arg */
 		BUFFER=our_malloc(strlen(arg)+1);
 			
 		strcpy(BUFFER,arg);
 		return BUFFER;
 	}
 
-	/* Each character in arg may take upto four characters in the result:
-	   For a quote we need a closing quote, a backslash, a quote and an
-	   opening quote! We need also the global opening and closing quote,
-	   and one extra character for '\0'. */
+	/*
+	 * Each character in arg may take upto four characters in the
+	 * result: For a quote we need a closing quote, a backslash, a quote
+	 * and an opening quote! We need also the global opening and closing
+	 * quote, and one extra character for '\0'.
+	 */
 	BUFFER=our_malloc(strlen(arg)*4+3);
 
 	bufptr=BUFFER;
@@ -181,14 +184,16 @@ const char *normalize(const char *arg)
 int generate_output(char * argv[],int argc,const char *optstr,
                     const struct option *longopts)
 {
-	int exit_code = 0; /* We assume everything will be OK */
+	int exit_code = 0; /* Assume everything will be OK */
 	int opt;
 	int longindex;
 	const char *charptr;
 
-	if (quiet_errors) /* No error reporting from getopt(3) */
+	if (quiet_errors) 
+		/* No error reporting from getopt(3) */
 		opterr=0;
-	optind=0; /* Reset getopt(3) */
+	/* Reset getopt(3) */
+	optind=0; 
 
 	while ((opt = (alternative?
 	              getopt_long_only(argc,argv,optstr,longopts,&longindex):
@@ -224,9 +229,8 @@ int generate_output(char * argv[],int argc,const char *optstr,
 }
 
 /*
- * Report an error when parsing getopt's own arguments.
- * If message is NULL, we already sent a message, we just exit with a helpful
- * hint.
+ * Report an error when parsing getopt's own arguments. If message is NULL,
+ * we already sent a message, we just exit with a helpful hint.
  */
 void parse_error(const char *message)
 {
@@ -246,7 +250,8 @@ static int long_options_nr=0; /* Nr of used elements in array */
 void add_longopt(const char *name,int has_arg)
 {
 	char *tmp;
-	if (!name) { /* init */
+	if (!name) { 
+		/* init */
 		free(long_options);
 		long_options=NULL;
 		long_options_length=0;
@@ -265,7 +270,8 @@ void add_longopt(const char *name,int has_arg)
 	long_options[long_options_nr].flag=NULL;
 	long_options[long_options_nr].val=0;
 
-	if (long_options_nr) { /* Not for init! */
+	if (long_options_nr) { 
+		/* Not for init! */
 		long_options[long_options_nr-1].has_arg=has_arg;
 		long_options[long_options_nr-1].flag=NULL;
 		long_options[long_options_nr-1].val=LONG_OPT;
@@ -278,9 +284,8 @@ void add_longopt(const char *name,int has_arg)
 	
 
 /* 
- * Register several long options. options is a string of long options, 
- * separated by commas or whitespace. 
- * This nukes options! 
+ * Register several long options. options is a string of long options,
+ * separated by commas or whitespace. This nukes options!
  */
 void add_long_options(char *options)
 {
@@ -388,8 +393,10 @@ int main(int argc, char *argv[])
 	if (argc == 1) 
 	{
 		if (compatible) {
-			/* For some reason, the original getopt gave no error
-                           when there were no arguments. */
+			/* 
+			 * For some reason, the original getopt gave no error
+                         * when there were no arguments. 
+			 */
 			printf(" --\n");
 			exit(0);
 		}
