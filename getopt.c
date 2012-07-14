@@ -39,6 +39,19 @@
  *   Fixed a few type's in the manpage
  */
 
+/* Exit codes:
+ *   0) No errors, succesful operation.
+ *   1) getopt(3) returned an error.
+ *   2) A problem with parameter parsing for getopt(1).
+ *   3) Internal error, out of memory
+ *   4) Returned for -T
+ */
+#define GETOPT_EXIT_CODE	1
+#define PARAMETER_EXIT_CODE	2
+#define XALLOC_EXIT_CODE	3
+#define TEST_EXIT_CODE		4
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -89,7 +102,7 @@ void *our_malloc(size_t size)
 	void *ret=malloc(size);
 	if (! ret) {
 		fprintf(stderr,_("%s: Out of memory!\n"),"getopt");
-		exit(3);
+		exit(XALLOC_EXIT_CODE);
 	}
 	return(ret);
 }
@@ -99,7 +112,7 @@ void *our_realloc(void *ptr, size_t size)
 	void *ret=realloc(ptr,size);
 	if (! ret && size) {
 		fprintf(stderr,_("%s: Out of memory!\n"),"getopt");
-		exit(3);
+		exit(XALLOC_EXIT_CODE);
 	}
 	return(ret);
 }
@@ -184,7 +197,7 @@ const char *normalize(const char *arg)
 int generate_output(char * argv[],int argc,const char *optstr,
                     const struct option *longopts)
 {
-	int exit_code = 0; /* Assume everything will be OK */
+	int exit_code = EXIT_SUCCESS;	/* Assume everything will be OK */
 	int opt;
 	int longindex;
 	const char *charptr;
@@ -200,7 +213,7 @@ int generate_output(char * argv[],int argc,const char *optstr,
 	              getopt_long(argc,argv,optstr,longopts,&longindex))) 
                != EOF) 
 		if (opt == '?' || opt == ':' )
-			exit_code = 1;
+			exit_code = GETOPT_EXIT_CODE;
 		else if (!quiet_output) 
 		{
 			if (opt == LONG_OPT) {
@@ -237,7 +250,7 @@ void parse_error(const char *message)
 	if (message)
 		fprintf(stderr,"getopt: %s\n",message);
 	fputs(_("Try `getopt --help' for more information.\n"),stderr);
-	exit(2);
+	exit(PARAMETER_EXIT_CODE);
 }
 
 static struct option *long_options=NULL;
@@ -343,17 +356,9 @@ void print_help(void)
 	fputs(_("  -T, --test                   Test for getopt(1) version\n"),stderr);
 	fputs(_("  -u, --unqote                 Do not quote the output\n"),stderr);
 	fputs(_("  -V, --version                Output version information\n"),stderr);
-	exit(2);
+	exit(PARAMETER_EXIT_CODE);
 }
 	
-/* Exit codes:
- *   0) No errors, succesful operation.
- *   1) getopt(3) returned an error.
- *   2) A problem with parameter parsing for getopt(1).
- *   3) Internal error, out of memory
- *   4) Returned for -T
- */
-
 static struct option longopts[]={ {"options",required_argument,NULL,'o'},
                                   {"longoptions",required_argument,NULL,'l'},
                                   {"quiet",no_argument,NULL,'q'},
@@ -398,18 +403,18 @@ int main(int argc, char *argv[])
                          * when there were no arguments. 
 			 */
 			printf(" --\n");
-			exit(0);
+			return EXIT_SUCCESS;
 		}
 		else
 			parse_error(_("missing optstring argument"));
-	}
+	
 	
 	if (argv[1][0] != '-' || compatible) {
 		quote=0;
 		optstr=our_malloc(strlen(argv[1])+1);
 		strcpy(optstr,argv[1]+strspn(argv[1],"-+"));
 		argv[1]=argv[0];
-		exit(generate_output(argv+1,argc-1,optstr,long_options));
+		return generate_output(argv+1,argc-1,optstr,long_options);
 	}
 	
 	while ((opt=getopt_long(argc,argv,shortopts,longopts,NULL)) != EOF) 
@@ -419,7 +424,6 @@ int main(int argc, char *argv[])
 			break;
 		case 'h':
 			print_help();
-			exit(0);
 		case 'o':
 			if (optstr)
 				free(optstr);
@@ -445,13 +449,13 @@ int main(int argc, char *argv[])
 			set_shell(optarg);
 			break;
 		case 'T':
-			exit(4);
+			return TEST_EXIT_CODE;
 		case 'u':
 			quote=0;
 			break;
 		case 'V':
 			printf(_("getopt (enhanced) 1.1.4\n"));
-			exit(0);
+			return EXIT_SUCCESS;
 		case '?':
 		case ':':
 			parse_error(NULL);
@@ -473,5 +477,5 @@ int main(int argc, char *argv[])
 		argv[optind-1]=name;
 	else
 		argv[optind-1]=argv[0];
-	exit(generate_output(argv+optind-1,argc-optind+1,optstr,long_options));
+	return generate_output(argv+optind-1,argc-optind+1,optstr,long_options);
 }
