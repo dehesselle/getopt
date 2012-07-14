@@ -81,7 +81,9 @@ shell_t shell=BASH;       /* The shell we generate output for. */
 int quiet_errors=0;       /* 0 is not quiet. */
 int quiet_output=0;       /* 0 is not quiet. */
 int quote=1;              /* 1 is do quote. */
-int alternative=0;        /* 0 is getopt_long, 1 is getopt_long_only */
+
+int (*getopt_long_fp) (int argc, char *const *argv, const char *optstr,
+                           const struct option * longopts, int *longindex);
 
 /* Function prototypes */
 void *our_malloc(size_t size);
@@ -208,9 +210,8 @@ int generate_output(char * argv[],int argc,const char *optstr,
 	/* Reset getopt(3) */
 	optind=0; 
 
-	while ((opt = (alternative?
-	              getopt_long_only(argc,argv,optstr,longopts,&longindex):
-	              getopt_long(argc,argv,optstr,longopts,&longindex))) 
+	while ((opt = 
+		(getopt_long_fp(argc, argv, optstr, longopts, &longindex)))
                != EOF) 
 		if (opt == '?' || opt == ':' )
 			exit_code = GETOPT_EXIT_CODE;
@@ -391,6 +392,7 @@ int main(int argc, char *argv[])
 #endif
 
 	init_longopt();
+	getopt_long_fp = getopt_long;
 
 	if (getenv("GETOPT_COMPATIBLE")) 
 		compatible=1;
@@ -407,6 +409,7 @@ int main(int argc, char *argv[])
 		}
 		else
 			parse_error(_("missing optstring argument"));
+	}
 	
 	
 	if (argv[1][0] != '-' || compatible) {
@@ -420,7 +423,7 @@ int main(int argc, char *argv[])
 	while ((opt=getopt_long(argc,argv,shortopts,longopts,NULL)) != EOF) 
 		switch (opt) {
 		case 'a':
-			alternative=1;
+			getopt_long_fp = getopt_long_only;
 			break;
 		case 'h':
 			print_help();
