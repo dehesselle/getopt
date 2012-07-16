@@ -76,10 +76,10 @@ typedef enum { BASH, TCSH } shell_t;
 
 
 /* Some global variables that tells us how to parse. */
-shell_t shell = BASH;       /* The shell we generate output for. */
-int quiet_errors = 0;       /* 0 is not quiet. */
-int quiet_output = 0;       /* 0 is not quiet. */
-int quote = 1;              /* 1 is do quote. */
+static shell_t shell = BASH;	/* The shell we generate output for. */
+static int quiet_errors = 0;	/* 0 is not quiet. */
+static int quiet_output = 0;	/* 0 is not quiet. */
+static int quote = 1;		/* 1 is do quote. */
 
 int (*getopt_long_fp) (int argc, char *const *argv, const char *optstr,
 		       const struct option * longopts, int *longindex);
@@ -87,16 +87,15 @@ int (*getopt_long_fp) (int argc, char *const *argv, const char *optstr,
 /* Function prototypes */
 void *our_malloc(size_t size);
 void *our_realloc(void *ptr, size_t size);
-const char *normalize(const char *arg);
-int generate_output(char * argv[], int argc, const char *optstr,
-                    const struct option *longopts);
+static const char *normalize(const char *arg);
+static int generate_output(char *argv[], int argc, const char *optstr,
+			   const struct option *longopts);
 int main(int argc, char *argv[]);
-void parse_error(const char *message);
-void add_long_options(char *options);
-void add_longopt(const char *name, int has_arg);
-void print_help(void);
-void set_shell(const char *new_shell);
-void set_initial_shell(void);
+static void parse_error(const char *message);
+static void add_long_options(char *options);
+static void add_longopt(const char *name, int has_arg);
+static void print_help(void);
+static void set_shell(const char *new_shell);
 
 void *our_malloc(size_t size)
 {
@@ -127,7 +126,7 @@ void *our_realloc(void *ptr, size_t size)
  * exclamation marks within single quotes, and nukes whitespace. This
  * function returns a pointer to a buffer that is overwritten by each call.
  */
-const char *normalize(const char *arg)
+static const char *normalize(const char *arg)
 {
 	static char *BUFFER = NULL;
 	const char *argptr = arg;
@@ -195,8 +194,8 @@ const char *normalize(const char *arg)
  * optstr must contain the short options, and longopts the long options.
  * Other settings are found in global variables.
  */
-int generate_output(char * argv[], int argc, const char *optstr,
-                    const struct option *longopts)
+static int generate_output(char *argv[], int argc, const char *optstr,
+			   const struct option *longopts)
 {
 	int exit_code = EXIT_SUCCESS;	/* Assume everything will be OK */
 	int opt;
@@ -242,7 +241,7 @@ int generate_output(char * argv[], int argc, const char *optstr,
  * Report an error when parsing getopt's own arguments. If message is NULL,
  * we already sent a message, we just exit with a helpful hint.
  */
-void parse_error(const char *message)
+static void __attribute__ ((__noreturn__)) parse_error(const char *message)
 {
 	if (message)
 		fprintf(stderr, "getopt: %s\n", message);
@@ -257,7 +256,7 @@ static int long_options_nr = 0;		/* Nr of used elements in array */
 #define init_longopt() add_longopt(NULL,0)
 
 /* Register a long option. The contents of name is copied. */
-void add_longopt(const char *name, int has_arg)
+static void add_longopt(const char *name, int has_arg)
 {
 	char *tmp;
 	if (!name) {
@@ -297,7 +296,7 @@ void add_longopt(const char *name, int has_arg)
  * Register several long options. options is a string of long options,
  * separated by commas or whitespace. This nukes options!
  */
-void add_long_options(char *options)
+static void add_long_options(char *options)
 {
 	int arg_opt;
 	char *tokptr = strtok(options, ", \t\n");
@@ -323,7 +322,7 @@ void add_long_options(char *options)
 	}
 }
 
-void set_shell(const char *new_shell)
+static void set_shell(const char *new_shell)
 {
 	if (!strcmp(new_shell, "bash"))
 		shell = BASH;
@@ -338,7 +337,7 @@ void set_shell(const char *new_shell)
 			    ("unknown shell after -s or --shell argument"));
 }
 
-void print_help(void)
+static void __attribute__ ((__noreturn__)) print_help(void)
 {
 	fputs(_("Usage: getopt optstring parameters\n"), stderr);
 	fputs(_("       getopt [options] [--] optstring parameters\n"), stderr);
@@ -358,7 +357,16 @@ void print_help(void)
 	exit(PARAMETER_EXIT_CODE);
 }
 
-static struct option longopts[] = { 
+int main(int argc, char *argv[])
+{
+	char *optstr = NULL;
+	char *name = NULL;
+	int opt;
+	int compatible = 0;
+
+	/* Stop scanning as soon as a non-option argument is found! */
+	static const char *shortopts = "+ao:l:n:qQs:TuhV";
+	static const struct option longopts[] = {
 		{"options", required_argument, NULL, 'o'},
 		{"longoptions", required_argument, NULL, 'l'},
 		{"quiet", no_argument, NULL, 'q'},
@@ -372,17 +380,6 @@ static struct option longopts[] = {
 		{"version", no_argument, NULL, 'V'},
 		{NULL, 0, NULL, 0}
 	};
-
-/* Stop scanning as soon as a non-option argument is found! */
-static const char *shortopts = "+ao:l:n:qQs:TuhV";
-
-int main(int argc, char *argv[])
-{
-	char *optstr = NULL;
-	char *name = NULL;
-	int opt;
-	int compatible = 0;
-
 #if WITHOUT_GETTEXT
 #else
 	setlocale(LC_ALL, "");
