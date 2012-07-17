@@ -64,6 +64,7 @@
 #endif
 
 #include "nls.h"
+#include "xalloc.h"
 
 /* NON_OPT is the code that is returned when a non-option is found in '+' 
  * mode */
@@ -81,12 +82,11 @@ static int quiet_errors = 0;	/* 0 is not quiet. */
 static int quiet_output = 0;	/* 0 is not quiet. */
 static int quote = 1;		/* 1 is do quote. */
 
+/* Allow changing which getopt is in use with function pointer */
 int (*getopt_long_fp) (int argc, char *const *argv, const char *optstr,
 		       const struct option * longopts, int *longindex);
 
 /* Function prototypes */
-void *our_malloc(size_t size);
-void *our_realloc(void *ptr, size_t size);
 static const char *normalize(const char *arg);
 static int generate_output(char *argv[], int argc, const char *optstr,
 			   const struct option *longopts);
@@ -96,26 +96,6 @@ static void add_long_options(char *options);
 static void add_longopt(const char *name, int has_arg);
 static void print_help(void);
 static void set_shell(const char *new_shell);
-
-void *our_malloc(size_t size)
-{
-	void *ret=malloc(size);
-	if (! ret) {
-		fprintf(stderr, ("%s: Out of memory!\n"), "getopt");
-		exit(XALLOC_EXIT_CODE);
-	}
-	return(ret);
-}
-
-void *our_realloc(void *ptr, size_t size)
-{
-	void *ret=realloc(ptr, size);
-	if (! ret && size) {
-		fprintf(stderr, ("%s: Out of memory!\n"), "getopt");
-		exit(XALLOC_EXIT_CODE);
-	}
-	return(ret);
-}
 
 /*
  * This function 'normalizes' a single argument: it puts single quotes
@@ -132,12 +112,11 @@ static const char *normalize(const char *arg)
 	const char *argptr = arg;
 	char *bufptr;
 
-	if (BUFFER != NULL)
-		free(BUFFER);
+	free(BUFFER);
 
 	if (!quote) {
 		/* Just copy arg */
-		BUFFER = our_malloc(strlen(arg)+1);
+		BUFFER = xmalloc(strlen(arg) + 1);
 
 		strcpy(BUFFER, arg);
 		return BUFFER;
@@ -149,7 +128,7 @@ static const char *normalize(const char *arg)
 	 * and an opening quote! We need also the global opening and closing
 	 * quote, and one extra character for '\0'.
 	 */
-	BUFFER = our_malloc(strlen(arg)*4+3);
+	BUFFER = xmalloc(strlen(arg) * 4 + 3);
 
 	bufptr = BUFFER;
 	*bufptr++ = '\'';
@@ -269,9 +248,9 @@ static void add_longopt(const char *name, int has_arg)
 
 	if (long_options_nr == long_options_length) {
 		long_options_length += LONG_OPTIONS_INCR;
-		long_options = our_realloc(long_options,
-					   sizeof(struct option) *
-					   long_options_length);
+		long_options = xrealloc(long_options,
+					sizeof(struct option) *
+					long_options_length);
 	}
 
 	long_options[long_options_nr].name = NULL;
@@ -284,7 +263,7 @@ static void add_longopt(const char *name, int has_arg)
 		long_options[long_options_nr - 1].has_arg = has_arg;
 		long_options[long_options_nr - 1].flag = NULL;
 		long_options[long_options_nr - 1].val = LONG_OPT;
-		tmp = our_malloc(strlen(name) + 1);
+		tmp = xmalloc(strlen(name) + 1);
 		strcpy(tmp, name);
 		long_options[long_options_nr - 1].name = tmp;
 	}
@@ -408,7 +387,7 @@ int main(int argc, char *argv[])
 
 	if (argv[1][0] != '-' || compatible) {
 		quote = 0;
-		optstr = our_malloc(strlen(argv[1]) + 1);
+		optstr = xmalloc(strlen(argv[1]) + 1);
 		strcpy(optstr, argv[1] + strspn(argv[1], "-+"));
 		argv[1] = argv[0];
 		return generate_output(argv + 1, argc - 1, optstr,
@@ -424,18 +403,16 @@ int main(int argc, char *argv[])
 		case 'h':
 			print_help();
 		case 'o':
-			if (optstr)
-				free(optstr);
-			optstr = our_malloc(strlen(optarg)+1);
+			free(optstr);
+			optstr = xmalloc(strlen(optarg) + 1);
 			strcpy(optstr, optarg);
 			break;
 		case 'l':
 			add_long_options(optarg);
 			break;
 		case 'n':
-			if (name)
-				free(name);
-			name = our_malloc(strlen(optarg)+1);
+			free(name);
+			name = xmalloc(strlen(optarg) + 1);
 			strcpy(name, optarg);
 			break;
 		case 'q':
@@ -466,7 +443,7 @@ int main(int argc, char *argv[])
 		if (optind >= argc)
 			parse_error(_("missing optstring argument"));
 		else {
-			optstr=our_malloc(strlen(argv[optind])+1);
+			optstr = xmalloc(strlen(argv[optind]) + 1);
 			strcpy(optstr, argv[optind]);
 			optind++;
 		}
