@@ -22,7 +22,7 @@ static void *xmalloc(const size_t size)
         void *ret = malloc(size);
 
         if (!ret && size) {
-                fprintf(stderr, "Error: cannot allocate %zu bytes", size);
+                fprintf(stderr, "%s: error: cannot allocate %zu bytes", program_invocation_short_name, size);
 		exit(XALLOC_EXIT_CODE);
 	}
         return ret;
@@ -33,7 +33,7 @@ static void *xrealloc(void *ptr, const size_t size)
         void *ret = realloc(ptr, size);
 
         if (!ret && size)
-                fprintf(stderr, "Error: cannot allocate %zu bytes", size);
+                fprintf(stderr, "%s: Error: cannot allocate %zu bytes", program_invocation_short_name, size);
         return ret;
 }
 

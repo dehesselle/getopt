@@ -117,7 +117,6 @@ static const char *normalize(const char *arg)
 	if (!quote) {
 		/* Just copy arg */
 		BUFFER = xmalloc(strlen(arg) + 1);
-
 		strcpy(BUFFER, arg);
 		return BUFFER;
 	}
@@ -223,8 +222,9 @@ static int generate_output(char *argv[], int argc, const char *optstr,
 static void __attribute__ ((__noreturn__)) parse_error(const char *message)
 {
 	if (message)
-		fprintf(stderr, "getopt: %s\n", message);
-	fputs(_("Try `getopt --help' for more information.\n"), stderr);
+		fprintf(stderr, "%s: %s\n", ,program_short_invocation_name, message);
+	fprintf(stderr, _("Try `%s --help' for more information.\n"),
+		program_invocation_short_name);
 	exit(PARAMETER_EXIT_CODE);
 }
 
@@ -322,17 +322,20 @@ static void __attribute__ ((__noreturn__)) print_help(void)
 	fputs(_("       getopt [options] [--] optstring parameters\n"), stderr);
 	fputs(_("       getopt [options] -o|--options optstring [options] [--]\n"), stderr);
 	fputs(_("              parameters\n"), stderr);
+	fputs(_("\nOptions:\n"), stderr);
 	fputs(_(" -a, --alternative            Allow long options starting with single -\n"), stderr);
 	fputs(_(" -h, --help                   This small usage guide\n"), stderr);
-	fputs(_(" -l, --longoptions=longopts   Long options to be recognized\n"), stderr);
-	fputs(_(" -n, --name=progname          The name under which errors are reported\n"), stderr);
-	fputs(_(" -o, --options=optstring      Short options to be recognized\n"), stderr);
+	fputs(_(" -l, --longoptions <longopts> Long options to be recognized\n"), stderr);
+	fputs(_(" -n, --name <progname>        The name under which errors are reported\n"), stderr);
+	fputs(_(" -o, --options <optstring>    Short options to be recognized\n"), stderr);
 	fputs(_(" -q, --quiet                  Disable error reporting by getopt(3)\n"), stderr);
 	fputs(_(" -Q, --quiet-output           No normal output\n"), stderr);
-	fputs(_(" -s, --shell=shell            Set shell quoting conventions\n"), stderr);
+	fputs(_(" -s, --shell <shell>          Set shell quoting conventions\n"), stderr);
 	fputs(_(" -T, --test                   Test for getopt(1) version\n"), stderr);
-	fputs(_(" -u, --unqote                 Do not quote the output\n"), stderr);
+	fputs(_(" -u, --unquote                Do not quote the output\n"), stderr);
 	fputs(_(" -V, --version                Output version information\n"), stderr);
+	fputc('\n', stderr);
+
 	exit(PARAMETER_EXIT_CODE);
 }
 
@@ -430,7 +433,7 @@ int main(int argc, char *argv[])
 			quote = 0;
 			break;
 		case 'V':
-			printf(_("getopt (enhanced) 1.1.4\n"));
+			printf(_("%s (enhanced) %s\n"), program_invocation_short_name, program_version);
 			return EXIT_SUCCESS;
 		case '?':
 		case ':':
