@@ -5,9 +5,8 @@ prefix=/usr/local
 bindir=$(prefix)/bin
 mandir=$(prefix)/man
 man1dir=$(mandir)/man1
-libdir=$(prefix)/lib
 sharedir=$(prefix)/share
-getoptdir=$(libdir)/getopt
+getoptdir=$(sharedir)/getopt
 localedir=$(sharedir)/locale
 
 # Define this to 0 to use the getopt(3) routines in this package.
