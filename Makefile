@@ -32,7 +32,7 @@ MSGFMT=msgfmt
 LANGUAGES = cs de es fr it ja nl pt_BR
 MOFILES:=$(patsubst %,po/%.mo,$(LANGUAGES))
 
-CPPFLAGS=-DLIBCGETOPT=$(LIBCGETOPT) -DWITH_GETTEXT=$(WITH_GETTEXT) -DLOCALEDIR=\"$(localedir)\" -DNOT_UTIL_LINUX -Dprogram_invocation_short_name=\"$(PACKAGE)\"  -Dprogram_version=\"$(VERSION)\"
+CPPFLAGS=-DLIBCGETOPT=$(LIBCGETOPT) -DWITHOUT_GETTEXT=$(WITHOUT_GETTEXT) -DLOCALEDIR=\"$(localedir)\" -DNOT_UTIL_LINUX -Dprogram_invocation_short_name=\"$(PACKAGE)\"  -Dprogram_version=\"$(VERSION)\"
 ifeq ($(LIBCGETOPT),0)
 CPPFLAGS+=-I./gnu 
 endif
@@ -74,7 +74,7 @@ install_doc:
 	                  getopt-test.bash getopt-test.tcsh \
 	           $(DESTDIR)$(getoptdir)
 
-ifeq ($(WITH_GETTEXT),1)
+ifeq ($(WITHOUT_GETTEXT),0)
 all_po: $(MOFILES)
 install_po: all_po
 	$(INSTALL) -m 755 -d $(DESTDIR)$(localedir)

@@ -31,16 +31,18 @@
 
 #define PACKAGE "getopt"
 
-#ifndef WITHOUT_GETTEXT
-#include <libintl.h>
-#define _(Text) gettext (Text)
-#else /* def WITHOUT_GETTEXT */
+#if WITHOUT_GETTEXT
 #define _(Text) (Text)
 #undef bindtextdomain
 #define bindtextdomain(Domain,Directory) /* empty */
 #undef textdomain
 #define textdomain(Domain) /* empty */
-#endif /* ndef WITHOUT_GETTEXT */
+#undef setlocale
+#define setlocale(Category,Locale) /* empty */
+#else /* not WITHOUT_GETTEXT */
+#include <libintl.h>
+#define _(Text) gettext (Text)
+#endif /* WITHOUT_GETTEXT */
 
 #endif /* def GETOPT_NLS */
 

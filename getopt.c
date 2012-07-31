@@ -222,7 +222,7 @@ static int generate_output(char *argv[], int argc, const char *optstr,
 static void __attribute__ ((__noreturn__)) parse_error(const char *message)
 {
 	if (message)
-		fprintf(stderr, "%s: %s\n", ,program_short_invocation_name, message);
+		fprintf(stderr, "%s: %s\n", program_invocation_short_name, message);
 	fprintf(stderr, _("Try `%s --help' for more information.\n"),
 		program_invocation_short_name);
 	exit(PARAMETER_EXIT_CODE);
@@ -362,12 +362,9 @@ int main(int argc, char *argv[])
 		{"version", no_argument, NULL, 'V'},
 		{NULL, 0, NULL, 0}
 	};
-#if WITHOUT_GETTEXT
-#else
 	setlocale(LC_ALL, "");
 	bindtextdomain(PACKAGE, LOCALEDIR);
 	textdomain(PACKAGE);
-#endif
 
 	init_longopt();
 	getopt_long_fp = getopt_long;
