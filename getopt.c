@@ -37,6 +37,8 @@
  *     <misiek@pld.org.pl>)
  * Version 1.1.4: Mon Nov 7 2005
  *   Fixed a few type's in the manpage
+ * Version 1.1.5: Mon Nov 7 2005
+ *  Sync with util-linux-2.21, fixed build problems, many new translations
  */
 
 /* Exit codes:
