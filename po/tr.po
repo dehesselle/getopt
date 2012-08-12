@@ -1,59 +1,56 @@
-# Mensajes en espa�ol para util-linux.
-# Copyright (C) 2000 Beth Powell <bpowell@turbolinux.com>.
-# Copyright (C) 2001, 2002, 2003 Santiago Vila Doncel <sanvila@unex.es>.
-#
-# This file is distributed under the same license as the util-linux package.
-#
-# Beth Powell <bpowell@turbolinux.com>, 2000.
-# Santiago Vila Doncel <sanvila@unex.es>, 2001, 2002, 2003, 2004, 2010.
+# Turkish translations for util-linux messages.
+# Copyright © 2004 Nilgün Belma Bugüner.
 #
 # Permission is granted to freely copy and distribute
 # this file and modified versions, provided that this
 # header is not removed and modified versions are marked
-# as such.
+# as such. No warranty.
+# Nilgün Belma Bugüner <nilgun@buguner.name.tr>, 2001, ..., 2006.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: util-linux-ng 2.17.1-rc1\n"
+"Project-Id-Version: util-linux 2.13-pre7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-12 10:55+0200\n"
-"PO-Revision-Date: 2010-04-04 03:31+0200\n"
-"Last-Translator: Santiago Vila Doncel <sanvila@unex.es>\n"
-"Language-Team: Spanish <es@li.org>\n"
-"Language: es\n"
+"PO-Revision-Date: 2006-03-06 15:45+0200\n"
+"Last-Translator: Nilgün Belma Bugüner <nilgun@buguner.name.tr>\n"
+"Language-Team: Turkish <gnu-tr-u12a@lists.sourceforge.net>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: getopt.c:226
 #, fuzzy, c-format
 msgid "Try `%s --help' for more information.\n"
-msgstr "Escriba `getopt --help' para obtener m�s informaci�n.\n"
+msgstr "Daha fazla bilgi için `getopt --help' yazınız.\n"
 
 #: getopt.c:295
 msgid "empty long option after -l or --long argument"
-msgstr "Opci�n larga vac�a tras argumento -l o --long"
+msgstr "-l ya da --long için argüman olarak uzun seçenek verilmemiş"
 
 #: getopt.c:316
 msgid "unknown shell after -s or --shell argument"
-msgstr "Shell desconocido tras argumento -s o --shell"
+msgstr "-s ya da --shell seçenekleri ile belirtilen kabuk bilinmiyor"
 
 #: getopt.c:321
 msgid "Usage: getopt optstring parameters\n"
-msgstr "Uso: getopt cadenaopciones par�metros\n"
+msgstr "Kullanımı: getopt seçenek-dizgesi parametreler\n"
 
 #: getopt.c:322
 msgid "       getopt [options] [--] optstring parameters\n"
-msgstr "       getopt [opciones] [--] cadenaopciones par�metros\n"
+msgstr "       getopt [seçenekler] [--] seçenek-dizgesi parametreler\n"
 
 #: getopt.c:323
 #, fuzzy
 msgid "       getopt [options] -o|--options optstring [options] [--]\n"
-msgstr "       getopt [opciones] [--] cadenaopciones par�metros\n"
+msgstr "       getopt [seçenekler] [--] seçenek-dizgesi parametreler\n"
 
 #: getopt.c:324
 msgid "              parameters\n"
-msgstr "              par�metros\n"
+msgstr "              parametreler\n"
 
 #: getopt.c:325
 #, fuzzy
@@ -62,83 +59,77 @@ msgid ""
 "Options:\n"
 msgstr ""
 "\n"
-"%d particiones:\n"
+"%d disk bölümü:\n"
 
 #: getopt.c:326
 #, fuzzy
 msgid ""
 " -a, --alternative            Allow long options starting with single -\n"
 msgstr ""
-"  -a, --alternative            Permite opciones largas con un solo - "
-"inicial\n"
+"  -a, --alternative             tek - ile başlayan uzun seçeneklere izin\n"
+"                                verilir\n"
 
 #: getopt.c:327
 #, fuzzy
 msgid " -h, --help                   This small usage guide\n"
-msgstr "  -h, --help                   Esta peque�a gu�a de uso\n"
+msgstr "  -h, --help                    Bu yardım iletisini gösterir\n"
 
 #: getopt.c:328
 #, fuzzy
 msgid " -l, --longoptions <longopts> Long options to be recognized\n"
-msgstr "  -l, --longoptions=opclargas  Opciones largas para reconocer\n"
+msgstr "  -l, --longoptions=uzunSeçnk   tanınacak uzun seçenek belirtilir\n"
 
 #: getopt.c:329
 #, fuzzy
 msgid ""
 " -n, --name <progname>        The name under which errors are reported\n"
-msgstr ""
-"  -n, --name=nombreprograma    El nombre con el que se informa de los "
-"errores\n"
+msgstr "  -n, --name=uygismi            Hatalar bu isim altında raporlanır\n"
 
 #: getopt.c:330
 #, fuzzy
 msgid " -o, --options <optstring>    Short options to be recognized\n"
-msgstr "  -o, --options=cadenaopciones Opciones cortas que se reconocen\n"
+msgstr "  -o, --options=sçnkdizgesi     Tanınacak kısa seçenekler belirtilir\n"
 
 #: getopt.c:331
 #, fuzzy
 msgid " -q, --quiet                  Disable error reporting by getopt(3)\n"
 msgstr ""
-"  -q, --quiet                  Desactiva informaci�n de errores mediante\n"
-"                               getopt(3)\n"
+"  -q, --quiet                   getopt(3)'un ürettiği hatalar gösterilmez\n"
 
 #: getopt.c:332
 #, fuzzy
 msgid " -Q, --quiet-output           No normal output\n"
-msgstr "  -Q, --quiet-output           No hay salida normal\n"
+msgstr "  -Q, --quiet-output           Normalde verilen çıktı verilmez\n"
 
 #: getopt.c:333
 #, fuzzy
 msgid " -s, --shell <shell>          Set shell quoting conventions\n"
-msgstr ""
-"  -s, --shell=int�rpr.�rdenes  Define las convenciones de cita del "
-"int�rprete\n"
+msgstr "  -s, --shell=kabukTürü         Kullanılacak kabuk türü belirtilir\n"
 
 #: getopt.c:334
 #, fuzzy
 msgid " -T, --test                   Test for getopt(1) version\n"
-msgstr "  -T, --test                   Prueba para la versi�n de getopt(1)\n"
+msgstr "  -T, --test                    getopt(1) sürümü için test\n"
 
 #: getopt.c:335
 #, fuzzy
 msgid " -u, --unquote                Do not quote the output\n"
-msgstr "  -u, --unquote                No entrecomilla el resultado\n"
+msgstr "  -u, --unqote                  Çıktı tırnak içine alınmaz\n"
 
 #: getopt.c:336
 #, fuzzy
 msgid " -V, --version                Output version information\n"
-msgstr "  -V, --version                Muestra informaci�n de versi�n\n"
+msgstr "  -V, --version                 Sürüm bilgilerini gösterir\n"
 
 #: getopt.c:384 getopt.c:444
 msgid "missing optstring argument"
-msgstr "Falta el argumento cadenaopciones"
+msgstr "seçenek-dizgesi verilmemiş"
 
-# FIXME: �Qu� hace un n�mero de versi�n en una cadena para ser traducida?
 #: getopt.c:433
 #, fuzzy, c-format
 msgid "%s (enhanced) %s\n"
-msgstr "getopt (mejorado) 1.1.3\n"
+msgstr "getopt (gelişmiş) 1.1.4\n"
 
 #: getopt.c:439
 msgid "internal error, contact the author."
-msgstr "Error interno; contacte con el desarrollador."
+msgstr "iç hata, yazara bildirin."

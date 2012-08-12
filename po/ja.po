@@ -1,239 +1,133 @@
-# Japanese messages for util-linux 2.10
-#
-# Copyright (C) 1999 Free Software Foundation, Inc.
-# Daisuke Yamashita <yamad@mb.infoweb.ne.jp>, 1999.
-# includes cfdisk translation by
-#     Hidenobu NABETANI <nabetani@kern.phys.sci.osaka-u.ac.jp>
-#: getopt.c:203 getopt.c:211 getopt.c:375
+# Japanese messages for util-linux
+# Copyright (C) 1999-2001,2009-2011 Free Software Foundation, Inc.
+# This file is distributed under the same license as the util-linux package.
+#   includes cfdisk original translation by
+#         Hidenobu NABETANI <nabetani@kern.phys.sci.osaka-u.ac.jp>
+# Daisuke Yamashita <yamad@mb.infoweb.ne.jp>, 1999-2001.
+# Makoto Kato <makoto.kt@gmail.com>, 2009-2010.
+#    Once util-linux-ng was forked from util-linux,
+#     as of January 2011 it has overrided original name util-linux.
+# Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: getopt 1.1.0\n"
-"POT-Creation-Date: 2000-07-02 00:38+0200\n"
-"PO-Revision-Date: 1999-11-03 13:25+0900\n"
-"Last-Translator: Daisuke Yamashita <yamad@mb.infoweb.ne.jp>\n"
-"Language-Team: japanese <japo@flatout.org>\n"
+"Project-Id-Version: util-linux 2.20-rc2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-12 10:55+0200\n"
+"PO-Revision-Date: 2011-08-29 00:19+0900\n"
+"Last-Translator: Takeshi Hamasaki <hmatrjp@users.sourceforge.jp>\n"
+"Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=euc-jp\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 0.3\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
-#: getopt.c:89 getopt.c:99
-#, c-format
-msgid "%s: Out of memory!\n"
-msgstr "%s: ¥á¥â¥ê¤¬Â­¤ê¤Ş¤»¤ó¡ª\n"
-
-#: getopt.c:89
-msgid "getopt"
-msgstr ""
-
-#: getopt.c:99
-msgid "geopt"
-msgstr ""
-
-#: getopt.c:200
-#, c-format
-msgid " --%s"
-msgstr ""
-
-#: getopt.c:202 getopt.c:205 getopt.c:210 getopt.c:218
-#, c-format
-msgid " %s"
-msgstr ""
-
-#: getopt.c:207
-#, c-format
-msgid " -%c"
-msgstr ""
-
-#: getopt.c:216
-msgid " --"
-msgstr ""
-
-#: getopt.c:219
-msgid "\n"
-msgstr ""
-
-#: getopt.c:232
+#: getopt.c:226
 #, fuzzy, c-format
-msgid "getopt: %s\n"
-msgstr "¥¿¥¤¥×: %s\n"
+msgid "Try `%s --help' for more information.\n"
+msgstr "ã‚ˆã‚Šå¤šãã®æƒ…å ±ã‚’å¾—ã‚‹ãŸã‚ã«ã¯ `%s --help' ã¨å…¥åŠ›ã—ã¦ãã ã•ã„.\n"
 
-#: getopt.c:233
-msgid "Try `getopt --help' for more information.\n"
-msgstr "`getopt --help' ¤Ç¾ÜºÙ¾ğÊó¤òÄ´¤Ù¤Æ¤¯¤À¤µ¤¤¡£\n"
-
-#: getopt.c:286 getopt.c:304
-msgid ", \t\n"
-msgstr ""
-
-#: getopt.c:299
+#: getopt.c:295
 msgid "empty long option after -l or --long argument"
-msgstr "-l ¤ä --long °ú¿ô¤Î¸å¤Î¥í¥ó¥°¥ª¥×¥·¥ç¥ó¤¬¶õ¤Ç¤¹"
-
-#: getopt.c:310
-msgid "bash"
-msgstr ""
-
-#: getopt.c:312
-#, fuzzy
-msgid "tcsh"
-msgstr "nattch"
-
-#: getopt.c:314
-#, fuzzy
-msgid "sh"
-msgstr " "
+msgstr "-l ã‚„ --long å¼•æ•°ã®å¾Œã®ãƒ­ãƒ³ã‚°ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãŒç©ºã§ã™"
 
 #: getopt.c:316
-msgid "csh"
-msgstr ""
-
-#: getopt.c:319
 msgid "unknown shell after -s or --shell argument"
-msgstr "-s ¤« --shell °ú¿ô¤Î¸å¤Î¥·¥§¥ë¤òÃÎ¤ê¤Ş¤»¤ó"
+msgstr "-s ã‹ --shell å¼•æ•°ã®å¾Œã®ã‚·ã‚§ãƒ«ã‚’çŸ¥ã‚Šã¾ã›ã‚“"
+
+#: getopt.c:321
+msgid "Usage: getopt optstring parameters\n"
+msgstr "ä½¿ã„æ–¹: getopt ã‚ªãƒ—ã‚·ãƒ§ãƒ³æ–‡å­—åˆ— å€¤\n"
+
+#: getopt.c:322
+msgid "       getopt [options] [--] optstring parameters\n"
+msgstr "       getopt [ã‚ªãƒ—ã‚·ãƒ§ãƒ³] [--] ã‚ªãƒ—ã‚·ãƒ§ãƒ³æ–‡å­—åˆ— å€¤\n"
+
+#: getopt.c:323
+#, fuzzy
+msgid "       getopt [options] -o|--options optstring [options] [--]\n"
+msgstr "       getopt [ã‚ªãƒ—ã‚·ãƒ§ãƒ³] [--] ã‚ªãƒ—ã‚·ãƒ§ãƒ³æ–‡å­—åˆ— å€¤\n"
 
 #: getopt.c:324
-msgid "Usage: getopt optstring parameters\n"
-msgstr "»È¤¤Êı: getopt ¥ª¥×¥·¥ç¥óÊ¸»úÎó ÃÍ\n"
+msgid "              parameters\n"
+msgstr "              å€¤\n"
 
 #: getopt.c:325
-msgid "       getopt [options] [--] optstring parameters\n"
-msgstr "       getopt [¥ª¥×¥·¥ç¥ó] [--] ¥ª¥×¥·¥ç¥óÊ¸»úÎó ÃÍ\n"
+msgid ""
+"\n"
+"Options:\n"
+msgstr ""
+"\n"
+"ã‚ªãƒ—ã‚·ãƒ§ãƒ³:\n"
 
 #: getopt.c:326
-msgid "       getopt [options] -o|--options optstring [options] [--]\n"
+#, fuzzy
+msgid ""
+" -a, --alternative            Allow long options starting with single -\n"
 msgstr ""
-"       getopt [¥ª¥×¥·¥ç¥ó] -o|--options ¥ª¥×¥·¥ç¥óÊ¸»úÎó [¥ª¥×¥·¥ç¥ó] [--]\n"
+"  -a, --alternative            ãƒ­ãƒ³ã‚°ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãŒ - ä¸€ã¤ã§å§‹ã¾ã‚‹ã®ã‚’è¨±ã™\n"
 
 #: getopt.c:327
-msgid "              parameters\n"
-msgstr "              ÃÍ\n"
+#, fuzzy
+msgid " -h, --help                   This small usage guide\n"
+msgstr "  -h, --help                   ã“ã®ã¡ã‚‡ã£ã¨ã—ãŸä½¿ã„æ–¹ã‚’è¡¨ç¤ºã™ã‚‹\n"
 
 #: getopt.c:328
-msgid ""
-"  -a, --alternative            Allow long options starting with single -\n"
-msgstr ""
-"  -a, --alternative            ¥í¥ó¥°¥ª¥×¥·¥ç¥ó¤¬ - °ì¤Ä¤Ç»Ï¤Ş¤ë¤Î¤òµö¤¹\n"
+#, fuzzy
+msgid " -l, --longoptions <longopts> Long options to be recognized\n"
+msgstr "  -l, --longoptions=longopts   ãƒ­ãƒ³ã‚°ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’ç†è§£ã•ã›ã‚‹\n"
 
 #: getopt.c:329
-msgid "  -h, --help                   This small usage guide\n"
-msgstr "  -h, --help                   ¤³¤Î¤Á¤ç¤Ã¤È¤·¤¿»È¤¤Êı¤òÉ½¼¨¤¹¤ë\n"
+#, fuzzy
+msgid ""
+" -n, --name <progname>        The name under which errors are reported\n"
+msgstr "  -n, --name=progname          ã‚¨ãƒ©ãƒ¼å ±å‘Šã®éš›ã®åå‰\n"
 
 #: getopt.c:330
-msgid "  -l, --longoptions=longopts   Long options to be recognized\n"
-msgstr "  -l, --longoptions=longopts   ¥í¥ó¥°¥ª¥×¥·¥ç¥ó¤òÍı²ò¤µ¤»¤ë\n"
+#, fuzzy
+msgid " -o, --options <optstring>    Short options to be recognized\n"
+msgstr "  -o, --options=optstring      ã‚·ãƒ§ãƒ¼ã¨ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’ç†è§£ã•ã›ã‚‹\n"
 
 #: getopt.c:331
-msgid ""
-"  -n, --name=progname          The name under which errors are reported\n"
-msgstr "  -n, --name=progname          ¥¨¥é¡¼Êó¹ğ¤Îºİ¤ÎÌ¾Á°\n"
+#, fuzzy
+msgid " -q, --quiet                  Disable error reporting by getopt(3)\n"
+msgstr "  -q, --quiet                  getopt(3) ã®ã‚¨ãƒ©ãƒ¼å ±å‘Šã‚’è¡Œã‚ãªã„\n"
 
 #: getopt.c:332
-msgid "  -o, --options=optstring      Short options to be recognized\n"
-msgstr "  -o, --options=optstring      ¥·¥ç¡¼¤È¥ª¥×¥·¥ç¥ó¤òÍı²ò¤µ¤»¤ë\n"
+#, fuzzy
+msgid " -Q, --quiet-output           No normal output\n"
+msgstr "%s: å‡ºåŠ›ç”¨æ›¸åº«ãŒé–‹ã‹ã‚Œã¦ã„ã¾ã›ã‚“\n"
 
 #: getopt.c:333
-msgid "  -q, --quiet                  Disable error reporting by getopt(3)\n"
-msgstr "  -q, --quiet                  getopt(3) ¤Î¥¨¥é¡¼Êó¹ğ¤ò¹Ô¤ï¤Ê¤¤\n"
+#, fuzzy
+msgid " -s, --shell <shell>          Set shell quoting conventions\n"
+msgstr "find_and_set_shell ã¯ default_shell = %s ã«è¨­å®šã—ã¾ã™\n"
 
 #: getopt.c:334
-msgid "  -Q, --quiet-output           No normal output\n"
-msgstr "  -Q, --quiet-output           ÄÌ¾ï¤Î½ĞÎÏ¤ò¹Ô¤ï¤Ê¤¤\n"
+#, fuzzy
+msgid " -T, --test                   Test for getopt(1) version\n"
+msgstr "ãƒãƒ¼ã‚¸ãƒ§ãƒ³ç•ªå·ãŒç­‰ã—ã„ã‹ã‚’ãƒ†ã‚¹ãƒˆã—ã¾ã™ã€‚"
 
 #: getopt.c:335
-msgid "  -s, --shell=shell            Set shell quoting conventions\n"
-msgstr "  -s, --shell=shell            ¥·¥§¥ë¤Î°úÍÑ¼è¤ê·è¤á¤òÀßÄê¤¹¤ë\n"
+#, fuzzy
+msgid " -u, --unquote                Do not quote the output\n"
+msgstr "å‡ºåŠ›ã®æœ«å°¾ã«æ”¹è¡Œã‚’ã¤ã‘ã¾ã›ã‚“"
 
 #: getopt.c:336
-msgid "  -T, --test                   Test for getopt(1) version\n"
-msgstr "  -T, --test                   getopt(1) ¥Ğ¡¼¥¸¥ç¥ó¤ò¥Æ¥¹¥È¤¹¤ë\n"
-
-#: getopt.c:337
 #, fuzzy
-msgid "  -u, --unqote                 Do not quote the output\n"
-msgstr "  -Q, --quiet-output           ÄÌ¾ï¤Î½ĞÎÏ¤ò¹Ô¤ï¤Ê¤¤\n"
+msgid " -V, --version                Output version information\n"
+msgstr "  -V, --version               ãƒãƒ¼ã‚¸ãƒ§ãƒ³æƒ…å ±ã‚’è¡¨ç¤ºã—ã¦çµ‚äº†\n"
 
-#: getopt.c:338
-msgid "  -V, --version                Output version information\n"
-msgstr "  -V, --version                ¥Ğ¡¼¥¸¥ç¥ó¾ğÊó¤ò½ĞÎÏ¤¹¤ë\n"
-
-#: getopt.c:350
-#, fuzzy
-msgid "options"
-msgstr "Í­±×¤Ê¥ª¥×¥·¥ç¥ó:"
-
-#: getopt.c:351
-#, fuzzy
-msgid "longoptions"
-msgstr "´í¸±¤Ê¥ª¥×¥·¥ç¥ó:"
-
-#: getopt.c:352
-#, fuzzy
-msgid "quiet"
-msgstr "½ªÎ»"
-
-#: getopt.c:353
-msgid "quiet-output"
-msgstr ""
-
-#: getopt.c:354
-#, fuzzy
-msgid "shell"
-msgstr "¥·¥§¥ë¤¬¤¢¤ê¤Ş¤»¤ó"
-
-#: getopt.c:355
-#, fuzzy
-msgid "test"
-msgstr "ÂĞ¾İ"
-
-#: getopt.c:356
-msgid "unquoted"
-msgstr ""
-
-#: getopt.c:357
-#, fuzzy
-msgid "help"
-msgstr "¥Ø¥ë¥×"
-
-#: getopt.c:358
-#, fuzzy
-msgid "alternative"
-msgstr "ÂåÂØ¥·¥ê¥ó¥À¿ô"
-
-#: getopt.c:359
-#, fuzzy
-msgid "name"
-msgstr "Ì¾Á°"
-
-#: getopt.c:360
-msgid "version"
-msgstr "¥Ğ¡¼¥¸¥ç¥ó"
-
-#: getopt.c:365
-msgid "+ao:l:n:qQs:TuhV"
-msgstr ""
-
-#: getopt.c:382
-msgid "GETOPT_COMPATIBLE"
-msgstr ""
-
-#: getopt.c:390
-msgid " --\n"
-msgstr ""
-
-#: getopt.c:394 getopt.c:455
+#: getopt.c:384 getopt.c:444
 msgid "missing optstring argument"
-msgstr "¥ª¥×¥·¥ç¥óÊ¸»úÎó°ú¿ô¤¬Â­¤ê¤Ş¤»¤ó"
+msgstr "ã‚ªãƒ—ã‚·ãƒ§ãƒ³æ–‡å­—åˆ—å¼•æ•°ãŒè¶³ã‚Šã¾ã›ã‚“"
 
-#: getopt.c:400
-msgid "-+"
-msgstr ""
+#: getopt.c:433
+#, fuzzy, c-format
+msgid "%s (enhanced) %s\n"
+msgstr "getopt (enhanced) 1.1.4\n"
 
-#: getopt.c:443
-#, fuzzy
-msgid "getopt (enhanced) 1.1.0\n"
-msgstr "getopt (enhanced) 1.0.3\n"
-
-#: getopt.c:449
+#: getopt.c:439
 msgid "internal error, contact the author."
-msgstr "ÆâÉô¥¨¥é¡¼¡¢ºî¼Ô¤ËÏ¢Íí¤ò¡£"
-
+msgstr "å†…éƒ¨ã‚¨ãƒ©ãƒ¼ã€ä½œè€…ã«é€£çµ¡ã‚’ã€‚"
