@@ -199,7 +199,7 @@ static int generate_output(char *argv[], int argc, const char *optstr,
 				if (longopts[longindex].has_arg)
 					printf(" %s", normalize(optarg ? optarg : ""));
 			} else if (opt == NON_OPT)
-				printf(" %s", normalize(optarg));
+				printf(" %s", normalize(optarg ? optarg : ""));
 			else {
 				printf(" -%c", opt);
 				charptr = strchr(optstr, opt);
@@ -260,7 +260,7 @@ static void add_longopt(const char *name, int has_arg)
 	long_options[long_options_nr].flag = NULL;
 	long_options[long_options_nr].val = 0;
 
-	if (long_options_nr) {
+	if (long_options_nr && name) {
 		/* Not for init! */
 		long_options[long_options_nr - 1].has_arg = has_arg;
 		long_options[long_options_nr - 1].flag = NULL;
