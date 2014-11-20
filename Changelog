@@ -1,3 +1,13 @@
+20141120: Minor code changes (sync with util-linux (git 20141120))
+20120812: Bumped up version number to 1.1.5
+20120812: Update translations (sync with util-linux (2.21))
+20120731: Fix build problems  (sync with util-linux (2.21))
+20120719: Update manpage (sync with util-linux (2.21))
+20120717: Remaining code restructuring (sync with util-linux (2.21))
+20120717: Use xmalloc instead of our own (sync with util-linux (2.21))
+20120716: Use static definitions (sync with util-linux (2.21))
+20120715: Minor spacing issues resolved (sync with util-linux (2.21))
+20120714: Minor code restructuring (sync with util-linux (2.21))
 20051107: Bumped up version number to 1.1.4
 20051107: Makefile: package target
 20051107: Changed email and website to current ones
