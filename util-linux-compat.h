@@ -17,4 +17,6 @@
 
 #define UTIL_LINUX_VERSION _("%s (enhanced) %s\n"), program_invocation_short_name, program_version
 
+#define warnx(dummy,message)	fprintf(stderr, "%s: %s\n", program_invocation_short_name, message);
+
 #endif /* UTIL_LINUX_C_H */

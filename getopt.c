@@ -12,14 +12,14 @@
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *  GNU General Public License for more details.
  *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+ *  You should have received a copy of the GNU General Public License along
+ *  with this program; if not, write to the Free Software Foundation, Inc.,
+ *  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-/* 
+/*
  * Version 1.0-b4: Tue Sep 23 1997. First public release.
- * Version 1.0: Wed Nov 19 1997. 
+ * Version 1.0: Wed Nov 19 1997.
  *   Bumped up the version number to 1.0
  *   Fixed minor typo (CSH instead of TCSH)
  * Version 1.0.1: Tue Jun 3 1998
@@ -33,7 +33,7 @@
  * Version 1.0.6: Tue Jun 27 2000
  *   No important changes
  * Version 1.1.0: Tue Jun 30 2000
- *   Added NLS support (partly written by Arkadiusz Miśkiewicz 
+ *   Added NLS support (partly written by Arkadiusz Miśkiewicz
  *     <misiek@pld.org.pl>)
  * Version 1.1.4: Mon Nov 7 2005
  *   Fixed a few type's in the manpage
@@ -42,7 +42,7 @@
  */
 
 /* Exit codes:
- *   0) No errors, succesful operation.
+ *   0) No errors, successful operation.
  *   1) getopt(3) returned an error.
  *   2) A problem with parameter parsing for getopt(1).
  *   3) Internal error, out of memory
@@ -69,7 +69,7 @@
 #include "nls.h"
 #include "xalloc.h"
 
-/* NON_OPT is the code that is returned when a non-option is found in '+' 
+/* NON_OPT is the code that is returned when a non-option is found in '+'
  * mode */
 #define NON_OPT 1
 /* LONG_OPT is the code that is returned when a long option is found. */
@@ -93,7 +93,6 @@ int (*getopt_long_fp) (int argc, char *const *argv, const char *optstr,
 static const char *normalize(const char *arg);
 static int generate_output(char *argv[], int argc, const char *optstr,
 			   const struct option *longopts);
-int main(int argc, char *argv[]);
 static void parse_error(const char *message);
 static void add_long_options(char *options);
 static void add_longopt(const char *name, int has_arg);
@@ -125,7 +124,7 @@ static const char *normalize(const char *arg)
 	}
 
 	/*
-	 * Each character in arg may take upto four characters in the
+	 * Each character in arg may take up to four characters in the
 	 * result: For a quote we need a closing quote, a backslash, a quote
 	 * and an opening quote! We need also the global opening and closing
 	 * quote, and one extra character for '\0'.
@@ -168,7 +167,7 @@ static const char *normalize(const char *arg)
 	return BUFFER;
 }
 
-/* 
+/*
  * Generate the output. argv[0] is the program name (used for reporting errors).
  * argv[1..] contains the options to be parsed. argc must be the number of
  * elements in argv (ie. 1 if there are no options, only the program name),
@@ -225,7 +224,7 @@ static int generate_output(char *argv[], int argc, const char *optstr,
 static void __attribute__ ((__noreturn__)) parse_error(const char *message)
 {
 	if (message)
-		fprintf(stderr, "%s: %s\n", program_invocation_short_name, message);
+		warnx("%s", message);
 	fprintf(stderr, _("Try `%s --help' for more information.\n"),
 		program_invocation_short_name);
 	exit(PARAMETER_EXIT_CODE);
@@ -274,7 +273,7 @@ static void add_longopt(const char *name, int has_arg)
 }
 
 
-/* 
+/*
  * Register several long options. options is a string of long options,
  * separated by commas or whitespace. This nukes options!
  */
@@ -368,6 +367,7 @@ int main(int argc, char *argv[])
 		{"version", no_argument, NULL, 'V'},
 		{NULL, 0, NULL, 0}
 	};
+
 	setlocale(LC_ALL, "");
 	bindtextdomain(PACKAGE, LOCALEDIR);
 	textdomain(PACKAGE);
@@ -389,7 +389,6 @@ int main(int argc, char *argv[])
 		} else
 			parse_error(_("missing optstring argument"));
 	}
-
 
 	if (argv[1][0] != '-' || compatible) {
 		quote = 0;
@@ -444,7 +443,7 @@ int main(int argc, char *argv[])
 		default:
 			parse_error(_("internal error, contact the author."));
 		}
-	
+
 	if (!optstr) {
 		if (optind >= argc)
 			parse_error(_("missing optstring argument"));
@@ -458,6 +457,7 @@ int main(int argc, char *argv[])
 		argv[optind - 1] = name;
 	else
 		argv[optind - 1] = argv[0];
+
 	return generate_output(argv + optind - 1, argc-optind + 1,
 			       optstr, long_options);
 }
