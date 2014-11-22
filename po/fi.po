@@ -1,7 +1,7 @@
 # Finnish messages for util-linux
 # This file is distributed under the same license as the util-linux package.
-# Copyright © 2002-2003, 2005, 2007-2009 Lauri Nurmi <lanurmi@iki.fi>
-# Lauri Nurmi <lanurmi@iki.fi>, 2002-2003, 2005, 2007-2009.
+# Copyright © 2002-2003, 2005, 2007-2009, 2013-2014 Lauri Nurmi <lanurmi@iki.fi>
+# Lauri Nurmi <lanurmi@iki.fi>, 2002-2003, 2005, 2007-2009, 2013-2014.
 #
 # Permission is granted to freely copy and distribute
 # this file and modified versions, provided, that this
@@ -17,58 +17,44 @@
 # ***
 msgid ""
 msgstr ""
-"Project-Id-Version: util-linux-ng 2.17-rc3\n"
+"Project-Id-Version: util-linux 2.25-rc3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-12 10:55+0200\n"
-"PO-Revision-Date: 2009-12-16 21:30+0200\n"
+"POT-Creation-Date: 2014-11-22 13:14+0100\n"
+"PO-Revision-Date: 2014-07-12 14:51+0300\n"
 "Last-Translator: Lauri Nurmi <lanurmi@iki.fi>\n"
 "Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Bookmarks: -1,-1,551,-1,-1,-1,-1,-1,-1,-1\n"
+"X-Generator: Poedit 1.6.5\n"
 
-#: getopt.c:226
+#: getopt.c:228
 #, fuzzy, c-format
 msgid "Try `%s --help' for more information.\n"
-msgstr ""
-"%s: %s\n"
-"Komento ”%s --help” antaa lisää tietoa.\n"
+msgstr "Kokeile ”%s --help” tai ”%s --usage” saadaksesi lisää tietoa.\n"
 
-#: getopt.c:295
+#: getopt.c:297
 msgid "empty long option after -l or --long argument"
 msgstr "tyhjä pitkä valitsin argumentin -l tai --long jälkeen"
 
-#: getopt.c:316
+#: getopt.c:318
 msgid "unknown shell after -s or --shell argument"
 msgstr "tuntematon kuori argumentin -s tai --shell jälkeen"
 
-#: getopt.c:321
-msgid "Usage: getopt optstring parameters\n"
-msgstr "Käyttö: getopt valitsinmerkkijono parametrit\n"
-
-#: getopt.c:322
-msgid "       getopt [options] [--] optstring parameters\n"
-msgstr "       getopt [valitsimet] [--] valitsinmerkkijono parametrit\n"
-
-#: getopt.c:323
-#, fuzzy
-msgid "       getopt [options] -o|--options optstring [options] [--]\n"
-msgstr "       getopt [valitsimet] [--] valitsinmerkkijono parametrit\n"
-
-#: getopt.c:324
-msgid "              parameters\n"
-msgstr "              parametrit\n"
-
 #: getopt.c:325
+#, fuzzy, c-format
 msgid ""
-"\n"
-"Options:\n"
+" %1$s optstring parameters\n"
+" %1$s [options] [--] optstring parameters\n"
+" %1$s [options] -o|--options optstring [options] [--] parameters\n"
 msgstr ""
-"\n"
-"Valitsimet:\n"
+"       getopt [valitsimet] -o|--options valitsinmerkkijono [valitsimet] "
+"[--]\n"
 
-#: getopt.c:326
+#: getopt.c:331
 #, fuzzy
 msgid ""
 " -a, --alternative            Allow long options starting with single -\n"
@@ -76,67 +62,152 @@ msgstr ""
 "  -a, --alternative            Salli pitkien valitsimien alkaminen yhdellä -:"
 "lla\n"
 
-#: getopt.c:327
-#, fuzzy
-msgid " -h, --help                   This small usage guide\n"
-msgstr "  -h, --help                   Tämä pieni käyttöopas\n"
-
-#: getopt.c:328
+#: getopt.c:332
 #, fuzzy
 msgid " -l, --longoptions <longopts> Long options to be recognized\n"
 msgstr "  -l, --longoptions=valitsimet Pitkät tunnistettavat valitsimet\n"
 
-#: getopt.c:329
+#: getopt.c:333
 #, fuzzy
 msgid ""
 " -n, --name <progname>        The name under which errors are reported\n"
 msgstr ""
 "  -n, --name=ohjelmanimi       Nimi, joka ilmoitetaan virheiden yhteydessä\n"
 
-#: getopt.c:330
+#: getopt.c:334
 #, fuzzy
 msgid " -o, --options <optstring>    Short options to be recognized\n"
 msgstr "  -o, --options=valitsimet     Lyhyet tunnistettavat valitsimet\n"
 
-#: getopt.c:331
+#: getopt.c:335
 #, fuzzy
 msgid " -q, --quiet                  Disable error reporting by getopt(3)\n"
 msgstr "  -q, --quiet                  Vaienna getopt(3):n virheilmoitukset\n"
 
-#: getopt.c:332
+#: getopt.c:336
 #, fuzzy
 msgid " -Q, --quiet-output           No normal output\n"
 msgstr "  -Q, --quiet-output           Ei normaalia tulostetta\n"
 
-#: getopt.c:333
+#: getopt.c:337
 #, fuzzy
 msgid " -s, --shell <shell>          Set shell quoting conventions\n"
 msgstr "  -s, --shell=kuori            Aseta kuoren lainauskäytännöt\n"
 
-#: getopt.c:334
+#: getopt.c:338
 #, fuzzy
 msgid " -T, --test                   Test for getopt(1) version\n"
 msgstr "  -T, --test                  Testaa getopt(1):n versio\n"
 
-#: getopt.c:335
+#: getopt.c:339
 #, fuzzy
-msgid " -u, --unquote                Do not quote the output\n"
+msgid " -u, --unquoted               Do not quote the output\n"
 msgstr "  -u, --unquote                Ei lainausmerkkejä tulosteeseen\n"
 
-#: getopt.c:336
-#, fuzzy
-msgid " -V, --version                Output version information\n"
-msgstr "  -V, --version                Näytä versiotiedot\n"
-
-#: getopt.c:384 getopt.c:444
+#: getopt.c:390 getopt.c:449
 msgid "missing optstring argument"
 msgstr "puuttuva valitsinmerkkijonon argumentti"
 
-#: getopt.c:433
-#, fuzzy, c-format
-msgid "%s (enhanced) %s\n"
-msgstr "getopt (parannettu) 1.1.4\n"
-
-#: getopt.c:439
+#: getopt.c:444
 msgid "internal error, contact the author."
 msgstr "sisäinen virhe, ota yhteyttä tekijään."
+
+#: util-linux-compat.h:11
+msgid ""
+"\n"
+"Usage:\n"
+msgstr ""
+"\n"
+"Käyttö:\n"
+
+#: util-linux-compat.h:12
+msgid ""
+"\n"
+"Options:\n"
+msgstr ""
+"\n"
+"Valitsimet:\n"
+
+#: util-linux-compat.h:13
+#, fuzzy
+msgid "\n"
+msgstr "???\n"
+
+#: util-linux-compat.h:14
+#, fuzzy
+msgid " -h, --help     display this help and exit\n"
+msgstr "      --help     näytä tämä ohje ja poistu\n"
+
+#: util-linux-compat.h:15
+#, fuzzy
+msgid " -V, --version  output version information and exit\n"
+msgstr "      --version  tulosta versiotiedot ja poistu\n"
+
+#: util-linux-compat.h:16
+#, fuzzy, c-format
+msgid ""
+"\n"
+"For more details see %s.\n"
+msgstr ""
+"\n"
+"Lisätietoja manuaalisivulla namei(1).\n"
+
+#: util-linux-compat.h:18
+#, c-format
+msgid "%s (enhanced) %s\n"
+msgstr ""
+
+#: gnu/getopt.c:678
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr ""
+
+#: gnu/getopt.c:702
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr ""
+
+#: gnu/getopt.c:707
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr ""
+
+#: gnu/getopt.c:724 gnu/getopt.c:897
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr ""
+
+#: gnu/getopt.c:753
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr ""
+
+#: gnu/getopt.c:757
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr ""
+
+#: gnu/getopt.c:783
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: virheellinen valitsin – %c\n"
+
+#: gnu/getopt.c:786
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr ""
+
+#: gnu/getopt.c:816 gnu/getopt.c:946
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr ""
+
+#: gnu/getopt.c:863
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr ""
+
+#: gnu/getopt.c:881
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr ""

@@ -1,140 +1,200 @@
-# Portuguese translation of the util-linux messages.
-# Copyright (C) 2000 Free Software Foundation, Inc.
+# Brazilian Portuguese translation for util-linux.
+# Copyright (C) 2014 Free Software Foundation, Inc.
+# Copyright (C) 2014 Karel Zak <kzak@redhat.com>
+# This file is distributed under the same license as the util-linux package.
 # Arnaldo Carvalho de Melo <acme@conectiva.com.br>, 1999-2000
 # Ricardo Stefani <ricardos@francanet.com.br>, 1999
 # Marcus Moreira <marcusms@frb.br>
 # Paulo Henrique R Pinheiro <nulo@sul.com.br>
-# <support@turbolinux.com>, 2000.
 # Alvaro Antunes <alvaro@netpar.com.br>, 2000
-# Rodrigo Stulzer Lopes <rodrigo@conectiva.com.br>, 2001
-#
-# Free redistribution is permitted.
+# Rodrigo Stulzer Lopes <rodrigo@conectiva.com.br>, 2000-2001
+# Rafael Ferreira <rafael.f.f1@gmail.com>, 2013, 2014.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: util-linux 2.11b\n"
+"Project-Id-Version: util-linux 2.24-rc2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-12 10:55+0200\n"
-"PO-Revision-Date: 2001-05-24 16:03-03:00\n"
-"Last-Translator: Rodrigo Stulzer Lopes <rodrigo@conectiva.com.br>\n"
-"Language-Team: Brazilian Portuguese <ldp-br@bazar.conectiva.com.br>\n"
+"POT-Creation-Date: 2014-11-22 13:14+0100\n"
+"PO-Revision-Date: 2014-05-16 02:23-0300\n"
+"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <ldpbr-translation@lists.sourceforge."
+"net>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 0.8\n"
+"X-Generator: Poedit 1.6.4\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: getopt.c:226
-#, fuzzy, c-format
+#: getopt.c:228
+#, c-format
 msgid "Try `%s --help' for more information.\n"
-msgstr "Tente `getopt --help' para maiores informações.\n"
+msgstr "Tente \"%s --help\" para maiores informaÃ§Ãµes.\n"
 
-#: getopt.c:295
+#: getopt.c:297
 msgid "empty long option after -l or --long argument"
-msgstr "opção longa vazia depois de argumento -l ou --long"
+msgstr "opÃ§Ã£o longa vazia apÃ³s argumento -l ou --long"
 
-#: getopt.c:316
+#: getopt.c:318
 msgid "unknown shell after -s or --shell argument"
-msgstr "interpretador de comandos desconhecido após argumento -s ou --shell"
-
-#: getopt.c:321
-msgid "Usage: getopt optstring parameters\n"
-msgstr "Uso: getopt texto_opções parâmetros\n"
-
-#: getopt.c:322
-msgid "       getopt [options] [--] optstring parameters\n"
-msgstr "       getopt [opções] [--] texto_opções parâmetros\n"
-
-#: getopt.c:323
-#, fuzzy
-msgid "       getopt [options] -o|--options optstring [options] [--]\n"
-msgstr "       getopt [opções] [--] texto_opções parâmetros\n"
-
-#: getopt.c:324
-msgid "              parameters\n"
-msgstr "              parâmetros\n"
+msgstr "shell desconhecido apÃ³s argumento -s ou --shell"
 
 #: getopt.c:325
-#, fuzzy
+#, c-format
+msgid ""
+" %1$s optstring parameters\n"
+" %1$s [options] [--] optstring parameters\n"
+" %1$s [options] -o|--options optstring [options] [--] parameters\n"
+msgstr ""
+" %1$s texto-opÃ§Ãµes parÃ¢metros\n"
+" %1$s [opÃ§Ãµes] [--] texto-opÃ§Ãµes parÃ¢metros\n"
+" %1$s [opÃ§Ãµes] -o|--options texto-opÃ§Ãµes [opÃ§Ãµes] [--] parÃ¢metros\n"
+
+#: getopt.c:331
+msgid ""
+" -a, --alternative            Allow long options starting with single -\n"
+msgstr ""
+" -a, --alternative            Permite opÃ§Ãµes longas iniciando com um Ãºnico "
+"-\n"
+
+#: getopt.c:332
+msgid " -l, --longoptions <longopts> Long options to be recognized\n"
+msgstr ""
+" -l, --longoptions <opÃ§Ãµes-longas>\n"
+"                              OpÃ§Ãµes longas a serem reconhecidas\n"
+
+#: getopt.c:333
+msgid ""
+" -n, --name <progname>        The name under which errors are reported\n"
+msgstr " -n, --name <nome-programa>   O nome sob o qual erros sÃ£o reportados\n"
+
+#: getopt.c:334
+msgid " -o, --options <optstring>    Short options to be recognized\n"
+msgstr " -o, --options <texto-opÃ§Ãµes> OpÃ§Ãµes curtas a serem reconhecidas\n"
+
+#: getopt.c:335
+msgid " -q, --quiet                  Disable error reporting by getopt(3)\n"
+msgstr ""
+" -q, --quiet                  Desabilita relatos de erros por getopt(3)\n"
+
+#: getopt.c:336
+msgid " -Q, --quiet-output           No normal output\n"
+msgstr " -Q, --quiet-output           Sem saÃ­da normal\n"
+
+#: getopt.c:337
+msgid " -s, --shell <shell>          Set shell quoting conventions\n"
+msgstr ""
+" -s, --shell <shell>          Configura as convenÃ§Ãµes de aspas do shell\n"
+
+#: getopt.c:338
+msgid " -T, --test                   Test for getopt(1) version\n"
+msgstr " -T, --test                   Testa a versÃ£o do getopt(1)\n"
+
+#: getopt.c:339
+msgid " -u, --unquoted               Do not quote the output\n"
+msgstr " -u, --unquoted               NÃ£o pÃµe a saÃ­da entre aspas\n"
+
+#: getopt.c:390 getopt.c:449
+msgid "missing optstring argument"
+msgstr "faltando o argumento texto-opÃ§Ãµes"
+
+#: getopt.c:444
+msgid "internal error, contact the author."
+msgstr "erro interno, entre em contato com o autor."
+
+#: util-linux-compat.h:11
+msgid ""
+"\n"
+"Usage:\n"
+msgstr ""
+"\n"
+"Uso:\n"
+
+#: util-linux-compat.h:12
 msgid ""
 "\n"
 "Options:\n"
 msgstr ""
 "\n"
-"%d partições:\n"
+"OpÃ§Ãµes:\n"
 
-#: getopt.c:326
-#, fuzzy
+#: util-linux-compat.h:13
+msgid "\n"
+msgstr "\n"
+
+#: util-linux-compat.h:14
+msgid " -h, --help     display this help and exit\n"
+msgstr " -h, --help     exibe esta ajuda e sai\n"
+
+#: util-linux-compat.h:15
+msgid " -V, --version  output version information and exit\n"
+msgstr " -V, --version  mostra informaÃ§Ã£o da versÃ£o e sai\n"
+
+#: util-linux-compat.h:16
+#, c-format
 msgid ""
-" -a, --alternative            Allow long options starting with single -\n"
+"\n"
+"For more details see %s.\n"
 msgstr ""
-"  -a, --alternative            Permite opções longas iniciando com um único "
-"-\n"
+"\n"
+"Para mais detalhes, veja %s.\n"
 
-#: getopt.c:327
-#, fuzzy
-msgid " -h, --help                   This small usage guide\n"
-msgstr "  -h, --help                   Mostra este pequeno guia de uso\n"
-
-#: getopt.c:328
-#, fuzzy
-msgid " -l, --longoptions <longopts> Long options to be recognized\n"
-msgstr "  -l, --longoptions=ops_longas Opções longas a serem reconhecidas\n"
-
-#: getopt.c:329
-#, fuzzy
-msgid ""
-" -n, --name <progname>        The name under which errors are reported\n"
-msgstr ""
-"  -n, --name=nome_prog         O nome sob o qual erros são reportados\n"
-
-#: getopt.c:330
-#, fuzzy
-msgid " -o, --options <optstring>    Short options to be recognized\n"
-msgstr "  -o, --options=texto_opções     Opções curtas a serem reconhecidas\n"
-
-#: getopt.c:331
-#, fuzzy
-msgid " -q, --quiet                  Disable error reporting by getopt(3)\n"
-msgstr ""
-"  -q, --quiet                  Desativa a exibição de erros por getopt(3)\n"
-
-#: getopt.c:332
-#, fuzzy
-msgid " -Q, --quiet-output           No normal output\n"
-msgstr "  -Q, --quiet-output           Sem saída normal\n"
-
-#: getopt.c:333
-#, fuzzy
-msgid " -s, --shell <shell>          Set shell quoting conventions\n"
-msgstr ""
-"  -s, --shell=shell            Configura as convenções de aspas do "
-"interpretador de comandos\n"
-
-#: getopt.c:334
-#, fuzzy
-msgid " -T, --test                   Test for getopt(1) version\n"
-msgstr "  -T, --test                   Teste de versão de getopt(1)\n"
-
-#: getopt.c:335
-#, fuzzy
-msgid " -u, --unquote                Do not quote the output\n"
-msgstr "  -u, --unqote                 Não quota a saída\n"
-
-#: getopt.c:336
-#, fuzzy
-msgid " -V, --version                Output version information\n"
-msgstr "  -V, --version                Mostra informações de versão\n"
-
-#: getopt.c:384 getopt.c:444
-msgid "missing optstring argument"
-msgstr "faltou o argumento texto_opções"
-
-#: getopt.c:433
-#, fuzzy, c-format
+#: util-linux-compat.h:18
+#, c-format
 msgid "%s (enhanced) %s\n"
-msgstr "getopt (melhorado) 1.1.0)\n"
+msgstr ""
 
-#: getopt.c:439
-msgid "internal error, contact the author."
-msgstr "erro interno, entre em contato com o autor."
+#: gnu/getopt.c:678
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr ""
+
+#: gnu/getopt.c:702
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr ""
+
+#: gnu/getopt.c:707
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr ""
+
+#: gnu/getopt.c:724 gnu/getopt.c:897
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr ""
+
+#: gnu/getopt.c:753
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr ""
+
+#: gnu/getopt.c:757
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr ""
+
+#: gnu/getopt.c:783
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr ""
+
+#: gnu/getopt.c:786
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr ""
+
+#: gnu/getopt.c:816 gnu/getopt.c:946
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr ""
+
+#: gnu/getopt.c:863
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr ""
+
+#: gnu/getopt.c:881
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr ""

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: util-linux 2.13-pre3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-12 10:55+0200\n"
+"POT-Creation-Date: 2014-11-22 13:14+0100\n"
 "PO-Revision-Date: 2005-09-17 13:40+0200\n"
 "Last-Translator: Josep Puigdemont <josep.puigdemont@gmail.com>\n"
 "Language-Team: Catalan <ca@dodds.net>\n"
@@ -22,37 +22,96 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: getopt.c:226
+#: getopt.c:228
 #, fuzzy, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Escolliu `getopt --help' per obtenir més informació.\n"
 
-#: getopt.c:295
+#: getopt.c:297
 msgid "empty long option after -l or --long argument"
 msgstr "opció llarga buida després de l'argument -l o --long"
 
-#: getopt.c:316
+#: getopt.c:318
 msgid "unknown shell after -s or --shell argument"
 msgstr "intèrpret d'ordres desconegut després de l'argument -s o --shell"
 
-#: getopt.c:321
-msgid "Usage: getopt optstring parameters\n"
-msgstr "Forma d'ús: getopt cadena_opcions paràmetres\n"
-
-#: getopt.c:322
-msgid "       getopt [options] [--] optstring parameters\n"
-msgstr "       getopt [opcions] [--] cadena_opcions paràmetres\n"
-
-#: getopt.c:323
-#, fuzzy
-msgid "       getopt [options] -o|--options optstring [options] [--]\n"
-msgstr "       getopt [opcions] [--] cadena_opcions paràmetres\n"
-
-#: getopt.c:324
-msgid "              parameters\n"
-msgstr "              paràmetres\n"
-
 #: getopt.c:325
+#, fuzzy, c-format
+msgid ""
+" %1$s optstring parameters\n"
+" %1$s [options] [--] optstring parameters\n"
+" %1$s [options] -o|--options optstring [options] [--] parameters\n"
+msgstr "       getopt [opcions] -o|--options cadena_opcions [opcions] [--]\n"
+
+#: getopt.c:331
+#, fuzzy
+msgid ""
+" -a, --alternative            Allow long options starting with single -\n"
+msgstr ""
+"  -a, --alternative            Permet opcions llargues amb només un -\n"
+
+#: getopt.c:332
+#, fuzzy
+msgid " -l, --longoptions <longopts> Long options to be recognized\n"
+msgstr "  -l, --longoptions=opc_llarg   Opcions llargues a reconèixer\n"
+
+#: getopt.c:333
+#, fuzzy
+msgid ""
+" -n, --name <progname>        The name under which errors are reported\n"
+msgstr ""
+"  -n, --name=nom_programa      El nom amb el que s'informa dels errors\n"
+
+#: getopt.c:334
+#, fuzzy
+msgid " -o, --options <optstring>    Short options to be recognized\n"
+msgstr "  -o, --options=cadena_opcions Opcions curtes a reconèixer\n"
+
+#: getopt.c:335
+#, fuzzy
+msgid " -q, --quiet                  Disable error reporting by getopt(3)\n"
+msgstr ""
+"  -q, --quiet                  Inhabilita els informes d'error mitjançant\n"
+"                               getopt(3)\n"
+
+#: getopt.c:336
+#, fuzzy
+msgid " -Q, --quiet-output           No normal output\n"
+msgstr "  -Q, --quiet-output           No hi ha sortida normal\n"
+
+#: getopt.c:337
+#, fuzzy
+msgid " -s, --shell <shell>          Set shell quoting conventions\n"
+msgstr ""
+"  -s, --shell=intèrpret_ordres Estableix els mateixos convenis quant a les\n"
+"                               cometes que l'interpret d'ordres indicat\n"
+
+#: getopt.c:338
+#, fuzzy
+msgid " -T, --test                   Test for getopt(1) version\n"
+msgstr "  -T, --test                   Prova la versió del getopt(1)\n"
+
+#: getopt.c:339
+#, fuzzy
+msgid " -u, --unquoted               Do not quote the output\n"
+msgstr "  -u, --unqote                 No es posarà la sortida entre cometes\n"
+
+#: getopt.c:390 getopt.c:449
+msgid "missing optstring argument"
+msgstr "falta l'argument cadena_opcions"
+
+#: getopt.c:444
+msgid "internal error, contact the author."
+msgstr "s'ha produït un error intern; contacteu amb l'autor."
+
+#: util-linux-compat.h:11
+#, fuzzy
+msgid ""
+"\n"
+"Usage:\n"
+msgstr "Forma d'ús:\n"
+
+#: util-linux-compat.h:12
 #, fuzzy
 msgid ""
 "\n"
@@ -61,78 +120,82 @@ msgstr ""
 "\n"
 "%d particions:\n"
 
-#: getopt.c:326
-#, fuzzy
-msgid ""
-" -a, --alternative            Allow long options starting with single -\n"
+#: util-linux-compat.h:13
+msgid "\n"
 msgstr ""
-"  -a, --alternative            Permet opcions llargues amb només un -\n"
 
-#: getopt.c:327
-#, fuzzy
-msgid " -h, --help                   This small usage guide\n"
-msgstr "  -h, --help                   Aquesta petita guia d'ús\n"
-
-#: getopt.c:328
-#, fuzzy
-msgid " -l, --longoptions <longopts> Long options to be recognized\n"
-msgstr "  -l, --longoptions=opc_llarg   Opcions llargues a reconèixer\n"
-
-#: getopt.c:329
-#, fuzzy
-msgid ""
-" -n, --name <progname>        The name under which errors are reported\n"
+#: util-linux-compat.h:14
+msgid " -h, --help     display this help and exit\n"
 msgstr ""
-"  -n, --name=nom_programa      El nom amb el que s'informa dels errors\n"
 
-#: getopt.c:330
+#: util-linux-compat.h:15
 #, fuzzy
-msgid " -o, --options <optstring>    Short options to be recognized\n"
-msgstr "  -o, --options=cadena_opcions Opcions curtes a reconèixer\n"
-
-#: getopt.c:331
-#, fuzzy
-msgid " -q, --quiet                  Disable error reporting by getopt(3)\n"
-msgstr ""
-"  -q, --quiet                  Inhabilita els informes d'error mitjançant\n"
-"                               getopt(3)\n"
-
-#: getopt.c:332
-#, fuzzy
-msgid " -Q, --quiet-output           No normal output\n"
-msgstr "  -Q, --quiet-output           No hi ha sortida normal\n"
-
-#: getopt.c:333
-#, fuzzy
-msgid " -s, --shell <shell>          Set shell quoting conventions\n"
-msgstr ""
-"  -s, --shell=intèrpret_ordres Estableix els mateixos convenis quant a les\n"
-"                               cometes que l'interpret d'ordres indicat\n"
-
-#: getopt.c:334
-#, fuzzy
-msgid " -T, --test                   Test for getopt(1) version\n"
-msgstr "  -T, --test                   Prova la versió del getopt(1)\n"
-
-#: getopt.c:335
-#, fuzzy
-msgid " -u, --unquote                Do not quote the output\n"
-msgstr "  -u, --unqote                 No es posarà la sortida entre cometes\n"
-
-#: getopt.c:336
-#, fuzzy
-msgid " -V, --version                Output version information\n"
+msgid " -V, --version  output version information and exit\n"
 msgstr "  -V, --version                Mostra la informació de la versió\n"
 
-#: getopt.c:384 getopt.c:444
-msgid "missing optstring argument"
-msgstr "falta l'argument cadena_opcions"
-
-#: getopt.c:433
+#: util-linux-compat.h:16
 #, fuzzy, c-format
-msgid "%s (enhanced) %s\n"
-msgstr "getopt (millorat) 1.1.3\n"
+msgid ""
+"\n"
+"For more details see %s.\n"
+msgstr "S'ha canviat la informació del finger.\n"
 
-#: getopt.c:439
-msgid "internal error, contact the author."
-msgstr "s'ha produït un error intern; contacteu amb l'autor."
+#: util-linux-compat.h:18
+#, c-format
+msgid "%s (enhanced) %s\n"
+msgstr ""
+
+#: gnu/getopt.c:678
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr ""
+
+#: gnu/getopt.c:702
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr ""
+
+#: gnu/getopt.c:707
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr ""
+
+#: gnu/getopt.c:724 gnu/getopt.c:897
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr ""
+
+#: gnu/getopt.c:753
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr ""
+
+#: gnu/getopt.c:757
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr ""
+
+#: gnu/getopt.c:783
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: opció il·legal -- %c\n"
+
+#: gnu/getopt.c:786
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr ""
+
+#: gnu/getopt.c:816 gnu/getopt.c:946
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr ""
+
+#: gnu/getopt.c:863
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr ""
+
+#: gnu/getopt.c:881
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr ""
