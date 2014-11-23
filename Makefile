@@ -105,3 +105,7 @@ package: clean
 	ln -s .. $(UNLIKELYNAME)/$(BASENAME)
 	cd $(UNLIKELYNAME) && tar cfvzp ../$(BASENAME).tar.gz --exclude='CVS' --exclude='*.tar.gz' --exclude=$(UNLIKELYNAME) $(BASENAME)/*
 	$(RM) -r $(UNLIKELYNAME)
+
+.PHONY: test
+test: all
+	./run-tests
