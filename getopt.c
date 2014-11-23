@@ -1,6 +1,6 @@
 /*
  *  getopt.c - Enhanced implementation of BSD getopt(1)
- *  Copyright (c) 1997-2005 Frodo Looijaard <frodo@frodo.looijaard.name>
+ *  Copyright (c) 1997-2014 Frodo Looijaard <frodo@frodo.looijaard.name>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
