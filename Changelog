@@ -2,7 +2,7 @@
 20141124: Properly quote backslashes for tcsh
 20141124: Detect ambiguous long options properly
           Thanks to Klaus Wulff <dinw.klswlff@dfgh.net>
-20141123: Create test harnass and tests
+20141123: Create test harness and tests
 20141122: Update translations (sync with util-linux (git 20141120))
 20141120: Update manual page (sync with util-linux (git 20141120))
 20141120: Minor code changes (sync with util-linux (git 20141120))
