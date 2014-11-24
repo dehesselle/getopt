@@ -39,6 +39,8 @@
  *   Fixed a few type's in the manpage
  * Version 1.1.5: Sun Aug 12 2012
  *  Sync with util-linux-2.21, fixed build problems, many new translations
+ * Version 1.1.6: ??? 2014
+ *  Sync with util-linux git 20141120, detect ambigious long options
  */
 
 /* Exit codes:
@@ -73,7 +75,7 @@
  * mode */
 #define NON_OPT 1
 /* LONG_OPT is the code that is returned when a long option is found. */
-#define LONG_OPT 2
+#define LONG_OPT 0
 
 /* The shells recognized. */
 typedef enum { BASH, TCSH } shell_t;
@@ -240,6 +242,8 @@ static int long_options_nr = 0;		/* Nr of used elements in array */
 static void add_longopt(const char *name, int has_arg)
 {
 	char *tmp;
+	static int flag;
+
 	if (!name) {
 		/* init */
 		free(long_options);
@@ -263,8 +267,8 @@ static void add_longopt(const char *name, int has_arg)
 	if (long_options_nr && name) {
 		/* Not for init! */
 		long_options[long_options_nr - 1].has_arg = has_arg;
-		long_options[long_options_nr - 1].flag = NULL;
-		long_options[long_options_nr - 1].val = LONG_OPT;
+		long_options[long_options_nr - 1].flag = &flag;
+		long_options[long_options_nr - 1].val = long_options_nr;
 		tmp = xmalloc(strlen(name) + 1);
 		strcpy(tmp, name);
 		long_options[long_options_nr - 1].name = tmp;
