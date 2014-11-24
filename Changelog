@@ -1,4 +1,4 @@
-20141124: Detect ambigious long options properly
+20141124: Detect ambiguous long options properly
           Thanks to Klaus Wulff <dinw.klswlff@dfgh.net>
 20141123: Create test harnass and a few basic tests
 20141122: Update translations (sync with util-linux (git 20141120))
