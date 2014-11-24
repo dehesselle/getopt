@@ -40,7 +40,8 @@
  * Version 1.1.5: Sun Aug 12 2012
  *  Sync with util-linux-2.21, fixed build problems, many new translations
  * Version 1.1.6: ??? 2014
- *  Sync with util-linux git 20141120, detect ambiguous long options
+ *  Sync with util-linux git 20141120, detect ambiguous long options, fix
+ *  backslash problem in tcsh
  */
 
 /* Exit codes:
@@ -143,6 +144,10 @@ static const char *normalize(const char *arg)
 			*bufptr++ = '\\';
 			*bufptr++ = '\'';
 			*bufptr++ = '\'';
+		} else if (shell == TCSH && *argptr == '\\') {
+			/* Backslash: replace it with: '\\' */
+			*bufptr++ = '\\';
+			*bufptr++ = '\\';
 		} else if (shell == TCSH && *argptr == '!') {
 			/* Exclamation mark: replace it with: \! */
 			*bufptr++ = '\'';
