@@ -39,7 +39,7 @@
  *   Fixed a few type's in the manpage
  * Version 1.1.5: Sun Aug 12 2012
  *  Sync with util-linux-2.21, fixed build problems, many new translations
- * Version 1.1.6: ??? 2014
+ * Version 1.1.6: Mon Nov 24 2014
  *  Sync with util-linux git 20141120, detect ambiguous long options, fix
  *  backslash problem in tcsh
  */
